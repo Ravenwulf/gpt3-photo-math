@@ -1,0 +1,25 @@
+{
+  "name": "gpt3-photo-math",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ravenwulf/gpt3-photo-math.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ravenwulf/gpt3-photo-math/issues"
+  },
+  "homepage": "https://github.com/Ravenwulf/gpt3-photo-math#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "got": "^11.8.0",
+    "tesseract.js": "^2.1.5"
+  }
+}
