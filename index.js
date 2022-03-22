@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 Tesseract.recognize(
-    './public/assets/easy-algebra/.jpg',
+    './public/assets/easy-algebra/algebra4.jpg',
     'eng',
     { logger: m => console.log(m) }
 ).then(async ({ data: { text } }) => {
@@ -35,7 +35,7 @@ A: The man is 33 years old and the son is 12 years old
 Q: In a class of 50 students, the number of females is 2 more than 5 times the number of males. How many males and females are there in the class?
 A: There are 42 females and 8 males in the class
 
-Q: ${text}
+Q: ${text.replace(/\n/g, ' ')}
 A:`;
     const url = 'https://api.openai.com/v1/engines/davinci/completions';
     const params = {
@@ -53,7 +53,8 @@ A:`;
     
     try {
         const response = await got.post(url, { json: params, headers: headers }).json();
-        output = `Q: ${text}\nA: ${response.choices[0].text}`;
+        output = `Q: ${text.replace(/\n/g, ' ')}\nA: ${response.choices[0].text}`;
+        console.log(response.choices[0])
         console.log(output);
     } catch (err) {
         console.log(err);
